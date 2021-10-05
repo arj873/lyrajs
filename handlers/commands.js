@@ -56,7 +56,7 @@ module.exports = async (client) => {
         const permissions = roles.reduce((a, r) => {
           return [...a, { id: r.id, type: "ROLE", permission: true }];
         }, []);
-        return [...accumulator, { id: r.id, remove:true }];
+        return [...accumulator, { id: r.id, remove: true }];
       }, []);
 
       await MainGuild.commands.permissions.set({ fullPermissions });
