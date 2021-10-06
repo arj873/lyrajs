@@ -17,8 +17,8 @@ module.exports = async (client) => {
     if (!command.name)
       return console.log(`[${file}] - Missing a Name`)
 
-    if (!command.description)
-      return console.log(`[COMMAND][${command.name}] - Missing a Description`)
+    if (command.type !== "USER" && !command.description) 
+      return console.log(`[${command.name}]` - "Missing Description");
 
     if (command.permission) {
       if (Perms.includes(command.permission)) command.defaultPermission = false;
@@ -52,7 +52,7 @@ module.exports = async (client) => {
         const permissions = roles.reduce((a, r) => {
           return [...a, { id: r.id, type: "ROLE", permission: true }];
         }, []);
-        return [...accumulator, { id: r.id, remove: true }];
+        return [...accumulator, { id: r.id, permissions }];
       }, []);
 
       await MainGuild.commands.permissions.set({ fullPermissions });

@@ -6,7 +6,7 @@ require("../../events/client/ready");
 module.exports = {
   name: "status",
   description: "Displays the status of the bot.",
-  permissions: "SEND_MESSAGES",
+  permission: "SEND_MESSAGES",
   /**
    *
    * @param {CommandInteraction} interaction
@@ -19,7 +19,7 @@ module.exports = {
         `**Latency**: ${client.ws.ping} ms **Uptime**: ${ms(client.uptime, { long: true })} **Database**: ${switchTo(connection.readyState)}`
       );
 
-    interaction.reply({ embeds: [Response], ephemeral: true });
+    interaction.reply({ embeds: [Response] });
   },
 };
 

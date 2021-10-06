@@ -10,4 +10,8 @@ client.commands = new Collection()
 require("./handlers/events")(client);
 require("./handlers/commands")(client);
 
-client.login(Token);
+client.login(Token).then(() => {
+    console.log("[CLIENT] - Logged in as " + "[" + client.user.tag + "]")
+}).catch((err) => {
+    console.log(err)
+});
