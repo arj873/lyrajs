@@ -9,31 +9,27 @@ const Ascii = require("ascii-table");
  * @param {Client} client
  */
 module.exports = async (client) => {
-  const Table = new Ascii("Command Loaded");
-
   CommandsArray = [];
 
   (await PG(`${process.cwd()}/commands/*/*.js`)).map(async (file) => {
     const command = require(file);
 
     if (!command.name)
-      return Table.addRow(file.split("/")[7], "FAILED", "Missing a name");
+      return console.log(`[${file}] - Missing a Name`)
 
     if (!command.description)
-      return Table.addRow(command.name, "FAILED", "Missing a description");
+      return console.log(`[COMMAND][${command.name}] - Missing a Description`)
 
     if (command.permission) {
       if (Perms.includes(command.permission)) command.defaultPermission = false;
-      else return Table.addRow(command.name, "FAILED", "Permission is invalid");
+      else return console.log(`[COMMAND][${command.name}] - Permission Invalid`)
     }
 
     client.commands.set(command.name, command);
     CommandsArray.push(command);
-
-    await Table.addRow(command.name, "SUCCESS");
+    
+    await console.log(`[COMMAND][${command.name}] - Successfully Loaded.`)
   });
-
-  console.log(Table.toString());
 
   // Permissions
   client.on("ready", async () => {

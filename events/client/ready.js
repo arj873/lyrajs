@@ -9,7 +9,7 @@ module.exports = {
    * @param {Client} client
    */
   execute(client) {
-    console.log("The client is ready");
+    console.log("[CLIENT] - ready");
     client.user.setActivity("SNAKE PLUS", { type: "WATCHING" });
 
     if (!Database) return;
@@ -19,7 +19,7 @@ module.exports = {
         useUnifiedTopology: true,
       })
       .then(() => {
-        console.log("The client is now connected to the database");
+        console.log("[CLIENT] - Connected to the Database");
       })
       .catch((err) => {
         console.log(err);

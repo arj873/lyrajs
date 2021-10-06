@@ -19,7 +19,7 @@ module.exports = {
         `**Latency**: ${client.ws.ping} ms **Uptime**: ${ms(client.uptime, { long: true })} **Database**: ${switchTo(connection.readyState)}`
       );
 
-    interaction.reply({ embeds: [Response] });
+    interaction.reply({ embeds: [Response], ephemeral: true });
   },
 };
 
