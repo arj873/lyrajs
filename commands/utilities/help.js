@@ -25,7 +25,7 @@ module.exports = {
         if (Target === null) {
             Response.setColor("BLURPLE")
             Response.setDescription(
-                '**List of Commands** - [clear] [status]'
+                '**List of Commands** - [clear] [status] [userinfo]'
             );
             return interaction.reply({ embeds: [Response], ephemeral: true });
         }
