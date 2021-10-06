@@ -34,7 +34,7 @@ module.exports = {
     const Response = new MessageEmbed().setColor("BLURPLE");
 
     if (Amount > 100 || Amount <= 0) {
-      Response.setColor("RED")
+      Response.setColor("RED");
       Response.setDescription(
         `Amount cannot exceed 100, and cannot be under 1.`
       );
@@ -54,12 +54,12 @@ module.exports = {
       await channel.bulkDelete(filtered, true).then((messages) => {
         if (messages.size > 1) {
           Response.setDescription(
-            `${messages.size} messages have been cleared from ${Target}.`
+            `**${messages.size} messages** have been cleared from ${Target}.`
           );
           interaction.reply({ embeds: [Response] });
         } else {
           Response.setDescription(
-            `${messages.size} message have been cleared from ${Target}.`
+            `**${messages.size} message** have been cleared from ${Target}.`
           );
           interaction.reply({ embeds: [Response] });
         }
@@ -68,12 +68,12 @@ module.exports = {
       await channel.bulkDelete(Amount, true).then((messages) => {
         if (messages.size > 1) {
           Response.setDescription(
-            `${messages.size} messages have been cleared from this channel.`
+            `**${messages.size} messages** have been cleared from this channel.`
           );
           interaction.reply({ embeds: [Response] });
         } else {
           Response.setDescription(
-            `${messages.size} message have been cleared from this channel.`
+            `**${messages.size} message** have been cleared from this channel.`
           );
           interaction.reply({ embeds: [Response] });
         }

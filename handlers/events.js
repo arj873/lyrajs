@@ -8,7 +8,9 @@ module.exports = async (client) => {
     const event = require(file);
 
     if (!Events.includes(event.name) || !event.name) {
-      console.log(`[EVENT]${event.name} - Event name is either invalid or missing.`)
+      console.log(
+        `[EVENT]${event.name} - Event name is either invalid or missing.`
+      );
       return;
     }
 

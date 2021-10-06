@@ -1,6 +1,6 @@
 const { CommandInteraction, Client, MessageEmbed } = require("discord.js");
 const { connection } = require("mongoose");
-const ms = require('ms');
+const ms = require("ms");
 require("../../events/client/ready");
 
 module.exports = {
@@ -16,7 +16,9 @@ module.exports = {
     const Response = new MessageEmbed()
       .setColor("BLURPLE")
       .setDescription(
-        `**Latency**: ${client.ws.ping} ms **Uptime**: ${ms(client.uptime, { long: true })} **Database**: ${switchTo(connection.readyState)}`
+        `**Latency**: ${client.ws.ping} ms **Uptime**: ${ms(client.uptime, {
+          long: true,
+        })} **Database**: ${switchTo(connection.readyState)}`
       );
 
     interaction.reply({ embeds: [Response] });

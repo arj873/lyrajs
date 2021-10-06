@@ -14,21 +14,21 @@ module.exports = async (client) => {
   (await PG(`${process.cwd()}/commands/*/*.js`)).map(async (file) => {
     const command = require(file);
 
-    if (!command.name)
-      return console.log(`[${file}] - Missing a Name`)
+    if (!command.name) return console.log(`[${file}] - Missing a Name`);
 
-    if (command.type !== "USER" && !command.description) 
+    if (command.type !== "USER" && !command.description)
       return console.log(`[${command.name}]` - "Missing Description");
 
     if (command.permission) {
       if (Perms.includes(command.permission)) command.defaultPermission = false;
-      else return console.log(`[COMMAND][${command.name}] - Permission Invalid`)
+      else
+        return console.log(`[COMMAND][${command.name}] - Permission Invalid`);
     }
 
     client.commands.set(command.name, command);
     CommandsArray.push(command);
-    
-    await console.log(`[COMMAND][${command.name}] - Successfully Loaded.`)
+
+    await console.log(`[COMMAND][${command.name}] - Successfully Loaded.`);
   });
 
   // Permissions

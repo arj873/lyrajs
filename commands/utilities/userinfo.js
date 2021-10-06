@@ -1,22 +1,30 @@
 const { ContextMenuInteraction, MessageEmbed } = require("discord.js");
 
 module.exports = {
-    name: "userinfo",
-    type: "USER",
-    permission: "SEND_MESSAGES",
-    /**
-     * 
-     * @param {ContextMenuInteraction} interaction 
-     */
-    async execute(interaction) {
-        const target = await interaction.guild.members.fetch(interaction.targetId);
+  name: "userinfo",
+  type: "USER",
+  permission: "SEND_MESSAGES",
+  /**
+   *
+   * @param {ContextMenuInteraction} interaction
+   */
+  async execute(interaction) {
+    const target = await interaction.guild.members.fetch(interaction.targetId);
 
-        const Response = new MessageEmbed()
-        .setColor("BLURPLE")
-        .addField("ID", `${target.user.id}`, true)
-        .addField("Member Since", `<t:${parseInt(target.joinedTimestamp / 1000)}:R>`, true)
-        .addField("Registered", `<t:${parseInt(target.user.createdTimestamp / 1000)}:R>`, true)
+    const Response = new MessageEmbed()
+      .setColor("BLURPLE")
+      .addField("ID", `${target.user.id}`, true)
+      .addField(
+        "Member Since",
+        `<t:${parseInt(target.joinedTimestamp / 1000)}:R>`,
+        true
+      )
+      .addField(
+        "Registered",
+        `<t:${parseInt(target.user.createdTimestamp / 1000)}:R>`,
+        true
+      );
 
-        interaction.reply({embeds: [Response], ephemeral: true })
-    }
-}
+    interaction.reply({ embeds: [Response], ephemeral: true });
+  },
+};
