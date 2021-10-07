@@ -24,7 +24,7 @@ module.exports = {
         case null:
             Response.setColor("BLURPLE");
             Response.setDescription(
-                "**List of Commands** - [clear] [status] [userinfo]"
+                "**List of Commands** - [clear] [status] [userinfo] [ban] [kick]"
             );
             return interaction.reply({ embeds: [Response], ephemeral: true });
         
@@ -46,6 +46,20 @@ module.exports = {
             Response.setColor("BLURPLE");
             Response.setDescription(
                 "**Userinfo**\n Right click on a user, navigate to Apps, and click on userinfo."
+            );
+            return interaction.reply({ embeds: [Response], ephemeral: true });
+        
+        case "ban":
+            Response.setColor("BLURPLE");
+            Response.setDescription(
+                "**Ban**\n A command to ban users. You can include reasoning, and decide the number of days to delete message history from."
+            );
+            return interaction.reply({ embeds: [Response], ephemeral: true });
+
+        case "kick":
+            Response.setColor("BLURPLE");
+            Response.setDescription(
+                "**Kick**\n A command to kick users. You can include reasoning, and decide the number of days to delete message history from."
             );
             return interaction.reply({ embeds: [Response], ephemeral: true });
         }; 
