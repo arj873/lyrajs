@@ -45,7 +45,7 @@ module.exports = {
         case "userinfo":
             Response.setColor("BLURPLE");
             Response.setDescription(
-                "**Userinfo**\n Right click on the user, navigate to Apps, and click on userinfo."
+                "**Userinfo**\n Right click on a user, navigate to Apps, and click on userinfo."
             );
             return interaction.reply({ embeds: [Response], ephemeral: true });
         }; 
